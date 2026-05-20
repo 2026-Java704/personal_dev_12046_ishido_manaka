@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>レシピ閲覧画面</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<h2>レシピ閲覧画面</h2>
+		<h3 th:text="${recipe.name}">料理名</h3>
+		<p>
+			カテゴリ：
+			<span th:text="${recipe.category.name}">カテゴリ名</span>
+		</p>
+
+		<h4>作り方</h4>
+		<div th:text="${recipe.recipe}">
+			
+		</div>
+		<br>
+		<a href="/recipes">レシピ一覧に戻る</a>
+
+	</div>
+
+</body>
+</html>

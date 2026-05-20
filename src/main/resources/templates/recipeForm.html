@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>レシピ作成画面</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<h2>レシピ作成画面</h2>
+
+	<form action="/recipes/add" method="post">
+
+		<div>
+			<label>料理のタイトル</label>
+			<input type="text" name="name" placeholder="レシピ名を入力してください">
+		</div>
+<br>
+		<div>
+			<label>カテゴリ</label><br>
+
+			<span th:each="category : ${categories}">
+				<input type="radio" name="categoryId" th:value="${category.id}">
+				<span th:text="${category.name}"></span>
+			</span>
+		</div>
+<br>
+         <div>
+			<label>料理の説明・作り方</label><br>
+			<textarea name="recipe" placeholder="レシピを入力してください"></textarea>
+		</div>
+<br>
+		<div>
+			<button>投稿</button>
+		</div>
+	</form>
+
+	<a href="/recipes">一覧に戻る</a>
+</body>
+</html>
