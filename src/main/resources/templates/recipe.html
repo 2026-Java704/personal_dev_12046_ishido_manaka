@@ -6,7 +6,8 @@
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
+	<header th:replace="~{header}"></header>
+	
 	<h2>レシピ閲覧画面</h2>
 		<h3 th:text="${recipe.name}">料理名</h3>
 		<p>
@@ -15,13 +16,16 @@
 		</p>
 
 		<h4>作り方</h4>
-		<div th:text="${recipe.recipe}">
-			
+	
+		<div th:text="${recipe.recipe}" style="padding: 15px; margin: 10px; border: 1px solid rgb(0, 0, 0); border-radius: 10px;">
+		  
 		</div>
+		
 		<br>
 		<a href="/recipes">レシピ一覧に戻る</a>
 
 	</div>
 
+	<footer th:replace="~{footer}"></footer>
 </body>
 </html>

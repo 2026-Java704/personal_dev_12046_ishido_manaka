@@ -6,7 +6,7 @@
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
+	<header th:replace="~{header}"></header>
 	<h2>レシピ作成画面</h2>
 
 	<form action="/recipes/add" method="post">
@@ -36,5 +36,7 @@
 	</form>
 
 	<a href="/recipes">一覧に戻る</a>
+	
+	<footer th:replace="~{footer}"></footer>
 </body>
 </html>

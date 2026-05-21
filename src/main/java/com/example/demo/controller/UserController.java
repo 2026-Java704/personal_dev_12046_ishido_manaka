@@ -7,19 +7,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.User;
+import com.example.demo.model.Account;
 import com.example.demo.repository.UserRepository;
 
 @Controller
 public class UserController {
 
 	private final UserRepository userRepository;
+	private final Account account;
 
-	public UserController(UserRepository userRepository) {
+	public UserController(UserRepository userRepository, Account account) {
 		this.userRepository = userRepository;
+		this.account = account;
 	}
 
 	// ログイン画面を表示
-	@GetMapping({ "/", "/login" })
+	@GetMapping({ "/", "/login", "/logout" })
 	public String index() {
 		return "login";
 	}
@@ -56,7 +59,7 @@ public class UserController {
 		return "redirect:/login";
 	}
 
-	// ログイン処理
+	// ログインする
 	@PostMapping("/login")
 	public String login(
 			@RequestParam String email,
@@ -69,6 +72,9 @@ public class UserController {
 			model.addAttribute("error", "メールアドレスまたはパスワードが正しくありません");
 			return "login";
 		}
+
+		//セッション管理されたアカウント情報に名前をセット
+		account.setName(user.getName());
 
 		return "redirect:/recipes";
 	}

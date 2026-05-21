@@ -6,12 +6,18 @@
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
+	<header th:replace="~{header}"></header>
 <h1>トップページ</h1>
 
+<span th:text="${@account.name}+' さんがログイン中'"></span>
+	<a href="/logout">ログアウト</a>
+	<br>
+	
 <a href="/recipes/add">
-	<button>投稿</button>
+	<button>レシピ投稿</button>
 </a>
+
+
 
 <form action="/recipes" method="get">
 	<input type="search" name="name" placeholder="検索" th:value="${name}">
@@ -34,7 +40,8 @@
 		</div>
 	</a>
 </div>
-
+<hr>
+	<footer th:replace="~{footer}"></footer>
 
 </body>
 </html>
