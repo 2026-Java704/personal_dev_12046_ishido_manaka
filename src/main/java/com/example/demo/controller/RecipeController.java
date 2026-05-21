@@ -10,20 +10,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Category;
 import com.example.demo.entity.Recipe;
+import com.example.demo.entity.User;
+import com.example.demo.model.Account;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.RecipeRepository;
+import com.example.demo.repository.UserRepository;
 
 @Controller
 public class RecipeController {
 
 	private final RecipeRepository recipeRepository;
 	private final CategoryRepository categoryRepository;
+	private final UserRepository userRepository;
+	private final Account account;
 
 	public RecipeController(
 			RecipeRepository recipeRepository,
-			CategoryRepository categoryRepository) {
+			CategoryRepository categoryRepository,
+			UserRepository userRepository,
+			Account account) {
 		this.recipeRepository = recipeRepository;
 		this.categoryRepository = categoryRepository;
+		this.userRepository = userRepository;
+		this.account = account;
 	}
 
 	//レシピの検索
@@ -64,7 +73,7 @@ public class RecipeController {
 		return "recipe";
 	}
 
-	// レシピの作成画面に行く
+	// レシピの投稿画面に行く
 	@GetMapping("/recipes/add")
 	public String create(Model model) {
 		List<Category> categories = categoryRepository.findAll();
@@ -82,10 +91,16 @@ public class RecipeController {
 
 		Category category = categoryRepository.findById(categoryId).get();
 
+		//ログインしてるユーザーを取得
+		User user = userRepository.findById(account.getId()).get();
+
 		Recipe newRecipe = new Recipe();
 		newRecipe.setName(name);
 		newRecipe.setRecipe(recipe);
 		newRecipe.setCategory(category);
+
+		//投稿者をセット
+		newRecipe.setUser(user);
 
 		recipeRepository.save(newRecipe);
 

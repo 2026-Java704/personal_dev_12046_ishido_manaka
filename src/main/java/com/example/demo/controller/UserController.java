@@ -36,33 +36,6 @@ public class UserController {
 		return "accountForm";
 	}
 
-	//	// 新規登録処理
-	//	@PostMapping("/users/add")
-	//	public String add(
-	//			@RequestParam String name,
-	//			@RequestParam String email,
-	//			@RequestParam String password,
-	//			@RequestParam String passwordConfirm,
-	//			Model model) {
-	//
-	//		//パスワードの確認
-	//		if (!password.equals(passwordConfirm)) {
-	//			model.addAttribute("error", "パスワードと確認用パスワードが一致しません");
-	//			model.addAttribute("name", name);
-	//			model.addAttribute("email", email);
-	//			return "accountForm";
-	//		}
-	//
-	//		User user = new User();
-	//		user.setName(name);
-	//		user.setEmail(email);
-	//		user.setPassword(password);
-	//
-	//		userRepository.save(user);
-	//
-	//		return "redirect:/login";
-	//	}
-
 	// 新規登録処理
 	@PostMapping("/users/add")
 	public String add(
@@ -72,7 +45,7 @@ public class UserController {
 			@RequestParam String passwordConfirm,
 			Model model) {
 
-		// エラーチェック
+		// エラーをチェック
 		List<String> errorList = new ArrayList<>();
 
 		if (name == null || name.length() == 0) {
@@ -134,7 +107,8 @@ public class UserController {
 			return "login";
 		}
 
-		//セッション管理されたアカウント情報に名前をセット
+		// セッションにIDと名前をセットする
+		account.setId(user.getId());
 		account.setName(user.getName());
 
 		return "redirect:/recipes";

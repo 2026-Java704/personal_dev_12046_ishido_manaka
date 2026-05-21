@@ -10,6 +10,11 @@
 	
 	<h2>レシピ閲覧画面</h2>
 		<h3 th:text="${recipe.name}">料理名</h3>
+		<h4>
+				投稿者：<span th:text="${recipe.user.name}">投稿者</span>
+		</h4>
+		
+		
 		<p>
 			カテゴリ：
 			<span th:text="${recipe.category.name}">カテゴリ名</span>

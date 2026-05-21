@@ -26,7 +26,7 @@
 
 <div>
 	<a href="/recipes">全て</a>
-	<span th:each="category : ${categories}">
+	<span th:each="category:${categories}">
 		<a th:href="@{/recipes(categoryId=${category.id})}"
 		   th:text="${category.name}">
 		</a>
@@ -34,12 +34,31 @@
 </div>
 
 <h2>レシピ一覧</h2>
-<div th:each="recipe : ${recipes}">
+<!--<div th:each="recipe:${recipes}">-->
+<!--	<a th:href="@{/recipes/detail(id=${recipe.id})}">-->
+<!--			<span th:text="${recipe.name}">レシピ</span>-->
+<!--		</div>-->
+<!--	</a>-->
+<!--</div>-->
+
+<div th:each="recipe:${recipes}">
 	<a th:href="@{/recipes/detail(id=${recipe.id})}">
-			<span th:text="${recipe.name}">レシピ</span>
-		</div>
+		<h3 th:text="${recipe.name}">レシピ名</h3>
 	</a>
+
+<!--	<p>-->
+<!--		投稿者：<span th:text="${recipe.user.name}">投稿者</span>-->
+<!--	</p>-->
+
+		<p>
+			投稿者：
+			<span th:if="${recipe.user != null}" th:text="${recipe.user.name}">投稿者名</span>
+			<span th:if="${recipe.user == null}">不明</span>
+		</p>
+	</div>
+	
 </div>
+
 <hr>
 	<footer th:replace="~{footer}"></footer>
 
