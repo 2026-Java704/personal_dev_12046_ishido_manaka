@@ -90,16 +90,12 @@ public class RecipeController {
 			@RequestParam String recipe) {
 
 		Category category = categoryRepository.findById(categoryId).get();
-
-		//ログインしてるユーザーを取得
 		User user = userRepository.findById(account.getId()).get();
 
 		Recipe newRecipe = new Recipe();
 		newRecipe.setName(name);
 		newRecipe.setRecipe(recipe);
 		newRecipe.setCategory(category);
-
-		//投稿者をセット
 		newRecipe.setUser(user);
 
 		recipeRepository.save(newRecipe);
