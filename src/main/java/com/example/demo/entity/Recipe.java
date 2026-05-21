@@ -44,7 +44,7 @@ public class Recipe {
 	}
 
 	public String getRecipe() {
-		return recipe;
+		return recipe.replaceAll("\n", "<br>"); //改行文字列<br>置換
 	}
 
 	public void setRecipe(String recipe) {
