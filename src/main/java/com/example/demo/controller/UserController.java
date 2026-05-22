@@ -25,7 +25,7 @@ public class UserController {
 	}
 
 	// ログイン画面を表示
-	@GetMapping({ "/", "/login", "/logout" })
+	@GetMapping({ "/", "/login" })
 	public String index() {
 		return "login";
 	}
@@ -112,5 +112,16 @@ public class UserController {
 		account.setName(user.getName());
 
 		return "redirect:/recipes";
+	}
+
+	// ログアウトする
+	@GetMapping("/logout")
+	public String logout() {
+
+		//セッションからIDと名前のセットを消す
+		account.setId(null);
+		account.setName(null);
+
+		return "redirect:/login";
 	}
 }

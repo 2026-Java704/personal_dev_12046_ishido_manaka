@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -92,6 +93,7 @@ public class RecipeController {
 		Category category = categoryRepository.findById(categoryId).get();
 		User user = userRepository.findById(account.getId()).get();
 
+		//セッションにレシピを登録
 		Recipe newRecipe = new Recipe();
 		newRecipe.setName(name);
 		newRecipe.setRecipe(recipe);
@@ -103,4 +105,45 @@ public class RecipeController {
 		return "redirect:/recipes";
 	}
 
+	//更新画面表示
+	@GetMapping("/recipes/{id}/edit")
+	public String edit(@PathVariable Integer id, Model model) {
+
+		Recipe recipe = recipeRepository.findById(id).get();
+		List<Category> categories = categoryRepository.findAll();
+
+		model.addAttribute("recipe", recipe);
+		model.addAttribute("categories", categories);
+
+		return "editRecipe";
+	}
+
+	// レシピ更新処理
+	@PostMapping("/recipes/{id}/edit")
+	public String update(
+			@PathVariable Integer id,
+			@RequestParam Integer categoryId,
+			@RequestParam(defaultValue = "") String name,
+			@RequestParam(defaultValue = "") String recipe) {
+
+		Recipe updateRecipe = recipeRepository.findById(id).get();
+		Category category = categoryRepository.findById(categoryId).get();
+
+		updateRecipe.setName(name);
+		updateRecipe.setRecipe(recipe);
+		updateRecipe.setCategory(category);
+
+		recipeRepository.save(updateRecipe);
+
+		return "redirect:/recipes";
+	}
+
+	// レシピを削除
+	@PostMapping("/recipes/{id}/delete")
+	public String delete(@PathVariable Integer id) {
+
+		recipeRepository.deleteById(id);
+
+		return "redirect:/recipes";
+	}
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>レシピ編集画面</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<header th:replace="~{header}"></header>
+	<h2>レシピ編集画面</h2>
+	<form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post">
+		<div>
+			<label>料理のタイトル</label><br>
+			<input type="text" name="name" th:value="${recipe.name}">
+		</div>
+<br>
+		<div>
+			<label>カテゴリ</label><br>
+
+			<select name="categoryId" required>
+				<option value="">カテゴリを選択してください</option>
+				<option th:each="category : ${categories}"
+						th:value="${category.id}"
+						th:text="${category.name}"
+						th:selected="${recipe.category.id == category.id}">
+				</option>
+			</select>
+		</div>
+<br>
+		<div>
+			<label>料理の説明・作り方</label><br>
+			<textarea name="recipe" th:text="${recipe.recipe}"></textarea>
+		</div>
+<br>
+        <div>
+			<button type="submit">更新</button>
+		</div>
+	</form>
+	<a href="/recipes">一覧に戻る</a>
+	<footer th:replace="~{footer}"></footer>
+</body>
+</html>

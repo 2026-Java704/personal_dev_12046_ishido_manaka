@@ -16,14 +16,28 @@
 			<input type="text" name="name" placeholder="レシピ名を入力してください">
 		</div>
 <br>
-		<div>
-			<label>カテゴリ</label><br>
+<!--		<div>-->
+<!--			<label>カテゴリ</label><br>-->
 
-			<span th:each="category : ${categories}">
-				<input type="radio" name="categoryId" th:value="${category.id}">
-				<span th:text="${category.name}"></span>
-			</span>
-		</div>
+<!--			<span th:each="category : ${categories}">-->
+<!--				<input type="radio" name="categoryId" th:value="${category.id}">-->
+<!--				<span th:text="${category.name}"></span>-->
+<!--			</span>-->
+
+<!--			</div>-->
+
+	<div>
+		<label>カテゴリ</label><br>
+
+		<select name="categoryId" required>
+			<option value="">カテゴリを選択してください</option>
+			<option th:each="category : ${categories}"
+					th:value="${category.id}"
+					th:text="${category.name}">
+			</option>
+		</select>
+	</div>
+		
 <br>
          <div>
 			<label>料理の説明・作り方</label><br>

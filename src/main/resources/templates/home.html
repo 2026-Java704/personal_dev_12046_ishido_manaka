@@ -8,10 +8,6 @@
 <body>
 	<header th:replace="~{header}"></header>
 <h1>トップページ</h1>
-
-<span th:text="${@account.name}+' さんがログイン中'"></span>
-	<a href="/logout">ログアウト</a>
-	<br>
 	
 <a href="/recipes/add">
 	<button>レシピ投稿</button>
@@ -34,31 +30,53 @@
 </div>
 
 <h2>レシピ一覧</h2>
+
 <!--<div th:each="recipe:${recipes}">-->
 <!--	<a th:href="@{/recipes/detail(id=${recipe.id})}">-->
-<!--			<span th:text="${recipe.name}">レシピ</span>-->
-<!--		</div>-->
+<!--		<h3 th:text="${recipe.name}">レシピ名</h3>-->
 <!--	</a>-->
-<!--</div>-->
-
-<div th:each="recipe:${recipes}">
-	<a th:href="@{/recipes/detail(id=${recipe.id})}">
-		<h3 th:text="${recipe.name}">レシピ名</h3>
-	</a>
 
 <!--	<p>-->
 <!--		投稿者：<span th:text="${recipe.user.name}">投稿者</span>-->
 <!--	</p>-->
 
-		<p>
-			投稿者：
-			<span th:if="${recipe.user != null}" th:text="${recipe.user.name}">投稿者名</span>
-			<span th:if="${recipe.user == null}">不明</span>
-		</p>
-	</div>
-	
-</div>
+<!--		<p>-->
+<!--			投稿者：-->
+<!--			<span th:if="${recipe.user != null}" th:text="${recipe.user.name}">投稿者名</span>-->
+<!--			<span th:if="${recipe.user == null}">不明</span>-->
+<!--		</p>-->
 
+<!--		<a th:href="@{/recipes/{id}/edit(id=${recipe.id})}">-->
+<!--			<button>編集</button>-->
+<!--		</a>-->
+		
+
+<!--		<form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">-->
+<!--			<button>削除</button>-->
+<!--		</form>-->
+		
+<!--</div>-->
+<div th:each="recipe:${recipes}" class="recipe-card">
+	<a th:href="@{/recipes/detail(id=${recipe.id})}">
+		<h3 th:text="${recipe.name}">レシピ名</h3>
+	</a>
+
+	<p>
+		投稿者：
+		<span th:if="${recipe.user != null}" th:text="${recipe.user.name}">投稿者名</span>
+		<span th:if="${recipe.user == null}">不明</span>
+	</p>
+
+	<div class="recipe-buttons">
+		<a th:href="@{/recipes/{id}/edit(id=${recipe.id})}">
+			<button type="button">編集</button>
+		</a>
+
+		<form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
+			<button type="submit">削除</button>
+		</form>
+	</div>
+</div>
 <hr>
 	<footer th:replace="~{footer}"></footer>
 
