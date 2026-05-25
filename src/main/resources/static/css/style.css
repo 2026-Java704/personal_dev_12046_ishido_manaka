@@ -1,185 +1,237 @@
 /* 全体 */
 body {
-	background-color: #EFF0F7; /* 背景色  */
+	background-color: rgb(255, 247, 232); /* 背景色 */
 	text-align: center; /* 中央寄せ */
     min-width: 900px; /* 最小幅 */
 }
-/* ヘッダー、ナビゲーションメニュー */
-header, nav ,footer{
-	background-color: rgb(243, 152, 0); /* 背景色 */
+
+/* ヘッダー、ナビゲーションメニュー、フッター */
+header, nav, footer {
+	background-color: rgb(243, 152, 0); /* クックパッド風オレンジ */
 	color: #ffffff; /* 文字色 */
-	padding-top: 10px; /* 内側余白(上) */
-	padding-bottom: 10px; /* 内側余白(下) */
+	padding-top: 5px; /* 内側余白(上) */
+	padding-bottom: 5px; /* 内側余白(下) */
 }
+
 /* ヘッダー、ナビゲーション内リンク */
 header a, nav a {
 	color: #ffffff;
 }
+
 /* ヘッダー内見出し */
 header h1 {
-	font-size: 25pt;
+	font-size: 20pt;
 	margin: 10px auto;
+	color: #ffffff;
 }
-/* フッター */
-footer {
-	margin-top: 40px;
-}
-
 
 /* 仕切り線 */
 hr {
 	border-top: 2px dashed rgb(243, 152, 0);
-	width: 80%;
 }
+
 /* メイン */
 main {
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	min-height: 50px;
 	padding: 20px;
 }
+
 /* 表線 */
 table, th, td {
 	border-collapse: collapse;
-	border: 1px solid #7d8bae;
+	border: 1px solid rgb(230, 194, 138);
 }
+
 /* 表 */
 table {
     margin: 5px auto;
     min-width: 800px;
 }
+
 /* 表見出しセル */
 table th {
-	background: #7d8bae;
+	background: rgb(243, 152, 0);
 	color: #ffffff;
 }
+
 /* 送信ボタン */
 button {
-	margin: 5px;
-	padding: 10px 20px;
+	margin: 2px;
+	padding: 5px 20px;
 	background-color: rgb(243, 152, 0);
 	color: #ffffff;
 	border: none;
 	width:150px;
 	cursor: pointer;
 }
+
 /* 送信ボタン(マウスオーバー時) */
 button:hover {
-	background-color: rgb(250, 213, 124);
+	background-color: rgb(246, 185, 75);
 }
-/*ログイン新規登録ボタン*/
-a[href="/users/new"] {
-	display: inline-block;
-	margin-top: 10px;
+
+/* エラーメッセージ */
+ul.error {
+	color: rgb(213, 62, 57);
+	list-style: none;
+	padding-left: 0;
 }
+
 /* 検索フォーム */
-form[action="/recipes"] {
+.search-form-1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+	width: 420px;
+	margin: 25px auto;
 	background-color: #ffffff;
-	width: 70%;
-	margin: 20px auto;
-	padding: 15px;
-	border-radius: 10px;
+	border: 2px solid rgb(243, 152, 0);
+	border-radius: 30px;
+	box-shadow: 0 3px 10px rgb(192, 192, 192);
 }
 
-form[action="/recipes"] input[type="search"] {
-	width: 60%;
+/* 検索入力欄 */
+.search-form-1 input {
+	width: 360px;
+	height: 48px;
+	padding: 5px 18px;
+	border: none;
+	box-sizing: border-box;
+	font-size: 15px;
+	outline: none;
+	color: rgb(74, 58, 42);
 }
 
-/* カテゴリ一覧 */
-body > div:not([th\:each]) {
-	width: 70%;
-	margin: 15px auto;
-	padding: 10px;
+/* プレースホルダー */
+.search-form-1 input::placeholder {
+	color: rgb(184, 165, 140);
+}
+
+/* 検索ボタン */
+.search-form-1 button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 48px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: rgb(243, 152, 0);
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+/* 検索ボタン hover */
+.search-form-1 button:hover {
+	background-color: rgb(246, 185, 75);
+}
+
+/* 虫眼鏡アイコン */
+.search-form-1 button::after {
+	width: 24px;
+	height: 24px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	content: "";
+}
+
+/* カテゴリ一覧エリア */
+.category-area {
+	width: 75%;
+	margin: 20px auto 35px;
+	padding: 18px 20px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 18px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
 }
 
 /* カテゴリリンク */
-body > div:not([th\:each]) a {
-	display: inline-block;
-	background-color: #ffffff;
+.category-area a {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 90px;
+	height: 40px;
+	padding: 0 18px;
+	margin: 6px;
+	background-color: rgb(255, 247, 232);
+	color: rgb(243, 152, 0);
 	border: 1px solid rgb(243, 152, 0);
 	border-radius: 20px;
-	padding: 6px 14px;
-	margin: 5px;
-	color: rgb(243, 152, 0);
+	font-weight: bold;
+	text-decoration: none;
+	box-sizing: border-box;
+	transition: 0.2s;
 }
 
-body > div:not([th\:each]) a:hover {
-	background-color: #fff0d0;
+/* カテゴリリンク hover */
+.category-area a:hover {
+	background-color: rgb(243, 152, 0);
+	color: #ffffff;
+	transform: translateY(-2px);
+	box-shadow: 0 3px 8px rgb(243, 152, 0);
 	text-decoration: none;
 }
 
-/* レシピ一覧カード */
+/* レシピ一覧見出し */
+h2 {
+	color: rgb(74, 58, 42);
+	margin-top: 30px;
+}
+
+/* レシピカード */
 .recipe-card {
-	background-color: #ffffff;
-	width: 65%;
-	margin: 20px auto;
-	padding: 25px;
-	border-radius: 12px;
-	border-left: 7px solid #f39800;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-	text-align: center;
+	background-color: rgb(255, 250, 242);
+	border: 1px solid rgb(246, 185, 75);
+	border-radius: 10px;
+	width: 70%;
+	margin: 15px auto;
+	padding: 18px;
+	text-align: left;
+}
+
+/* レシピ名リンク */
+.recipe-card a {
+	text-decoration: none;
 }
 
 /* レシピ名 */
 .recipe-card h3 {
-	display: inline-block;
-	color: #e67e22;
-	border: 1px solid #f39800;
-	border-radius: 18px;
-	padding: 18px 20px;
-	margin: 0 auto 15px;
+	color: rgb(243, 152, 0);
+	margin: 0 0 10px;
 }
 
 /* 投稿者 */
 .recipe-card p {
-	color: #4a3a2a;
-	margin: 10px 0 20px;
+	color: rgb(95, 74, 56);
+	margin: 8px 0 15px;
 }
 
 /* 編集・削除ボタンの並び */
 .recipe-buttons {
 	display: flex;
-	justify-content: center;
-	gap: 15px;
-	align-items: center;
+	gap: 10px;
 }
 
-/* 削除フォームだけカード化しない */
+/* 削除フォームの余白を消す */
 .recipe-buttons form {
-	background: none;
-	box-shadow: none;
-	width: auto;
 	margin: 0;
-	padding: 0;
-	border-radius: 0;
 }
 
-/* 編集・削除ボタンを同じ見た目にする */
+/* 編集・削除ボタン */
 .recipe-buttons button {
-	width: 150px;
-	margin: 0;
-	padding: 9px 20px;
-	background-color: #f39800;
+	background-color: rgb(243, 152, 0);
 	color: #ffffff;
 	border: none;
 	border-radius: 6px;
-	font-weight: bold;
+	padding: 6px 16px;
 	cursor: pointer;
 }
 
 .recipe-buttons button:hover {
-	background-color: #f6b94b;
+	background-color: rgb(246, 185, 75);
 }
-
-
-
-/* エラーメッセージ */
-p[style*="color:red"] {
-	width: 50%;
-	max-width: 400px;
-	margin: 3px auto;
-	background-color: bisque;
-	color: red;
-	padding: 3px;
-	text-align: center;
-}
-

@@ -47,6 +47,10 @@ public class Recipe {
 		return recipe.replaceAll("\n", "<br>"); //改行文字列<br>置換
 	}
 
+	public String getEditRecipe() {
+		return recipe;
+	}
+
 	public void setRecipe(String recipe) {
 		this.recipe = recipe;
 	}

@@ -13,14 +13,14 @@
 	<button>レシピ投稿</button>
 </a>
 
-
-
-<form action="/recipes" method="get">
+<form action="/recipes" method="get" class="search-form-1">
+	<label>
 	<input type="search" name="name" placeholder="検索" th:value="${name}">
-	<button>検索</button>
+	</label>
+	<button type="submit" aria-label="検索"></button>
 </form>
 
-<div>
+<div class="category-area">
 	<a href="/recipes">全て</a>
 	<span th:each="category:${categories}">
 		<a th:href="@{/recipes(categoryId=${category.id})}"
@@ -29,35 +29,11 @@
 	</span>
 </div>
 
+
 <h2>レシピ一覧</h2>
 
-<!--<div th:each="recipe:${recipes}">-->
-<!--	<a th:href="@{/recipes/detail(id=${recipe.id})}">-->
-<!--		<h3 th:text="${recipe.name}">レシピ名</h3>-->
-<!--	</a>-->
-
-<!--	<p>-->
-<!--		投稿者：<span th:text="${recipe.user.name}">投稿者</span>-->
-<!--	</p>-->
-
-<!--		<p>-->
-<!--			投稿者：-->
-<!--			<span th:if="${recipe.user != null}" th:text="${recipe.user.name}">投稿者名</span>-->
-<!--			<span th:if="${recipe.user == null}">不明</span>-->
-<!--		</p>-->
-
-<!--		<a th:href="@{/recipes/{id}/edit(id=${recipe.id})}">-->
-<!--			<button>編集</button>-->
-<!--		</a>-->
-		
-
-<!--		<form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">-->
-<!--			<button>削除</button>-->
-<!--		</form>-->
-		
-<!--</div>-->
 <div th:each="recipe:${recipes}" class="recipe-card">
-	<a th:href="@{/recipes/detail(id=${recipe.id})}">
+	<a th:href="@{/recipes/detail(id=${recipe.id})}" class="title">
 		<h3 th:text="${recipe.name}">レシピ名</h3>
 	</a>
 
@@ -67,15 +43,18 @@
 		<span th:if="${recipe.user == null}">不明</span>
 	</p>
 
-	<div class="recipe-buttons">
-		<a th:href="@{/recipes/{id}/edit(id=${recipe.id})}">
-			<button type="button">編集</button>
-		</a>
+<div class="recipe-buttons"
 
-		<form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
-			<button type="submit">削除</button>
-		</form>
-	</div>
+	 th:if="${recipe.user != null and account.id == recipe.user.id}">
+
+	<a th:href="@{/recipes/{id}/edit(id=${recipe.id})}">
+		<button type="button">編集</button>
+	</a>
+
+	<form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
+		<button type="submit">削除</button>
+	</form>
+</div>
 </div>
 <hr>
 	<footer th:replace="~{footer}"></footer>

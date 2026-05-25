@@ -29,7 +29,7 @@
 <br>
 		<div>
 			<label>料理の説明・作り方</label><br>
-			<textarea name="recipe" th:text="${recipe.recipe}"></textarea>
+			<textarea name="recipe" th:utext="${#strings.replace(recipe.editRecipe, '\n', '<br>')}"></textarea>
 		</div>
 <br>
         <div>

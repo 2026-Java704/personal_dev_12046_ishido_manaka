@@ -1,0 +1,253 @@
+/* =========================
+   home.css
+   ホーム画面専用CSS
+========================= */
+
+/* 全体 */
+body {
+	background-color: #fff7ec;
+	color: #3f2d20;
+	text-align: center;
+	min-width: 900px;
+}
+
+/* aタグの初期設定 */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* メイン全体 */
+main {
+	width: 85%;
+	max-width: 1100px;
+	margin: 30px auto;
+	padding: 30px;
+	background-color: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* トップ見出し */
+h1 {
+	color: #f39800;
+	font-size: 32px;
+	margin-bottom: 10px;
+}
+
+/* レシピ投稿ボタン */
+a[href="/recipes/add"] button {
+	width: 180px;
+	padding: 12px 20px;
+	margin: 15px 0 25px;
+	background-color: #f39800;
+	color: #ffffff;
+	border: none;
+	border-radius: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+a[href="/recipes/add"] button:hover {
+	background-color: #f6b94b;
+}
+
+/* 検索フォーム */
+.search-form-1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+	width: 380px;
+	margin: 25px auto;
+	background-color: #ffffff;
+	border: 2px solid #f39800;
+	border-radius: 25px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 検索入力欄 */
+.search-form-1 input {
+	width: 320px;
+	height: 45px;
+	padding: 5px 15px;
+	border: none;
+	box-sizing: border-box;
+	font-size: 1em;
+	outline: none;
+}
+
+/* placeholder */
+.search-form-1 input::placeholder {
+	color: #c0c0c0;
+}
+
+/* 検索ボタン */
+.search-form-1 button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 55px;
+	height: 45px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: #f39800;
+	cursor: pointer;
+}
+
+/* 虫眼鏡アイコン */
+.search-form-1 button::after {
+	width: 24px;
+	height: 24px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	content: "";
+}
+
+/* カテゴリ一覧 */
+.category-area {
+	width: 75%;
+	margin: 20px auto 35px;
+	padding: 18px;
+	background-color: #ffffff;
+	border-radius: 18px;
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* カテゴリリンク */
+.category-area a {
+	display: inline-block;
+	background-color: #fffaf2;
+	border: 1px solid #f39800;
+	border-radius: 20px;
+	padding: 7px 16px;
+	margin: 6px;
+	color: #f39800;
+	font-weight: bold;
+}
+
+/* カテゴリリンク hover */
+.category-area a:hover {
+	background-color: #f39800;
+	color: #ffffff;
+}
+
+/* レシピ一覧見出し */
+h2 {
+	color: #4a3a2a;
+	font-size: 26px;
+	margin-top: 35px;
+	margin-bottom: 20px;
+}
+
+/* レシピ一覧 */
+.recipe-list {
+	width: 75%;
+	margin: 0 auto;
+}
+
+/* レシピカード */
+.recipe-card {
+	background-color: #ffffff;
+	margin: 22px auto;
+	padding: 25px 30px;
+	border-radius: 18px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+	border-left: 8px solid #f39800;
+	text-align: left;
+	transition: 0.2s;
+}
+
+/* レシピカード hover */
+.recipe-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* レシピ名リンク */
+.recipe-card > a {
+	display: inline-block;
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+	color: #e67e22;
+}
+
+/* レシピ名 */
+.recipe-card h3 {
+	color: #e67e22;
+	font-size: 22px;
+	margin: 0 0 12px;
+}
+
+/* レシピ名 hover */
+.recipe-card h3:hover {
+	color: #f39800;
+	text-decoration: underline;
+}
+
+/* 投稿者 */
+.recipe-card p {
+	color: #5f4a38;
+	margin: 10px 0 20px;
+}
+
+/* 編集・削除ボタンの並び */
+.recipe-buttons {
+	display: flex;
+	justify-content: flex-start;
+	gap: 12px;
+	align-items: center;
+}
+
+/* 編集ボタンのaタグに変な枠線をつけない */
+.recipe-buttons a {
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* 削除フォームの余計な装飾を消す */
+.recipe-buttons form {
+	background: none;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/* 編集・削除ボタン */
+.recipe-buttons button {
+	width: 120px;
+	margin: 0;
+	padding: 9px 18px;
+	background-color: #f39800;
+	color: #ffffff;
+	border: none;
+	border-radius: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 編集・削除ボタン hover */
+.recipe-buttons button:hover {
+	background-color: #f6b94b;
+}
+
+/* 横線 */
+hr {
+	border: none;
+	border-top: 2px dashed #f39800;
+	width: 80%;
+	margin: 40px auto;
+}
