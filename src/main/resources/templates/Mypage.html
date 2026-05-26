@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="mypage">
+	<header th:replace="~{header}"></header>
+
+	<h2>マイページ</h2>
+
+	<div class="mypage-box">
+		<p>
+			<span th:text="${userName}"></span>さんの投稿一覧
+		</p>
+	</div>
+
+	<div th:if="${#lists.isEmpty(recipes)}" class="mypage-box">
+		<p>まだ投稿したレシピはありません。</p>
+		<a href="/recipes/new">レシピを投稿する</a>
+	</div>
+
+	<div th:each="recipe : ${recipes}" class="my-recipe-card">
+		<a th:href="@{/recipes/{id}(id=${recipe.id})}">
+			<h3 th:text="${recipe.name}"></h3>
+		</a>
+
+		<p>
+			カテゴリ：
+			<span th:text="${recipe.category.name}"></span>
+		</p>
+
+		<div class="recipe-buttons">
+			<form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="get">
+				<button>編集</button>
+			</form>
+
+			<form th:action="@{/recipes/{id}/delete(id=${recipe.id})}" method="post">
+				<button>削除</button>
+			</form>
+		</div>
+	</div>
+
+	<a class="back-link" href="/recipes">一覧に戻る</a>
+
+	<footer th:replace="~{footer}"></footer>
+</body>
+</html>

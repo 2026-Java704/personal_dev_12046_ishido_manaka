@@ -5,11 +5,11 @@
 <title>レシピ作成画面</title>
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="recipe-form-page">
 	<header th:replace="~{header}"></header>
-	<h2>レシピ作成画面</h2>
+	<h2 class="form-title">レシピ作成画面</h2>
 
-	<form action="/recipes/add" method="post">
+	<form class="recipe-form" action="/recipes/add" method="post">
 
 		<div>
 			<label>料理のタイトル</label>
@@ -40,7 +40,7 @@
 		</div>
 	</form>
 
-	<a href="/recipes">一覧に戻る</a>
+	<a class="back-link" href="/recipes">一覧に戻る</a>
 	
 	<footer th:replace="~{footer}"></footer>
 </body>

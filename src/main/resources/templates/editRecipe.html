@@ -5,10 +5,10 @@
 <title>レシピ編集画面</title>
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="recipe-form-page">
 	<header th:replace="~{header}"></header>
-	<h2>レシピ編集画面</h2>
-	<form th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post">
+	<h2 class="form-title">レシピ編集画面</h2>
+	<form class="recipe-form" th:action="@{/recipes/{id}/edit(id=${recipe.id})}" method="post">
 		<div>
 			<label>料理のタイトル</label><br>
 			<input type="text" name="name" th:value="${recipe.name}">
@@ -36,7 +36,7 @@
 			<button type="submit">更新</button>
 		</div>
 	</form>
-	<a href="/recipes">一覧に戻る</a>
+	<a class="back-link" href="/recipes">一覧に戻る</a>
 	<footer th:replace="~{footer}"></footer>
 </body>
 </html>

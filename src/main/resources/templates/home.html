@@ -20,7 +20,7 @@
 	<button type="submit" aria-label="検索"></button>
 </form>
 
-<div class="category-area">
+<div class="category-area leading-7 mb-sm lg:mb-rg">
 	<a href="/recipes">全て</a>
 	<span th:each="category:${categories}">
 		<a th:href="@{/recipes(categoryId=${category.id})}"

@@ -228,4 +228,19 @@ public class RecipeController {
 		return "redirect:/recipes";
 	}
 
+	//マイページの表示
+	@GetMapping("/mypage")
+	public String mypage(Model model) {
+
+		if (account.getId() == null) {
+			return "redirect:/login";
+		}
+
+		List<Recipe> recipes = recipeRepository.findByUserId(account.getId());
+
+		model.addAttribute("userName", account.getName());
+		model.addAttribute("recipes", recipes);
+
+		return "mypage";
+	}
 }

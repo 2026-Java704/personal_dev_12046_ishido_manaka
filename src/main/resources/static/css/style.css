@@ -91,8 +91,6 @@ ul.error {
 	border-radius: 30px;
 	box-shadow: 0 3px 10px rgb(192, 192, 192);
 }
-
-/* 検索入力欄 */
 .search-form-1 input {
 	width: 360px;
 	height: 48px;
@@ -103,13 +101,9 @@ ul.error {
 	outline: none;
 	color: rgb(74, 58, 42);
 }
-
-/* プレースホルダー */
 .search-form-1 input::placeholder {
 	color: rgb(184, 165, 140);
 }
-
-/* 検索ボタン */
 .search-form-1 button {
 	display: flex;
 	justify-content: center;
@@ -123,13 +117,9 @@ ul.error {
 	cursor: pointer;
 	transition: 0.2s;
 }
-
-/* 検索ボタン hover */
 .search-form-1 button:hover {
 	background-color: rgb(246, 185, 75);
 }
-
-/* 虫眼鏡アイコン */
 .search-form-1 button::after {
 	width: 24px;
 	height: 24px;
@@ -139,7 +129,7 @@ ul.error {
 	content: "";
 }
 
-/* カテゴリ一覧エリア */
+/* カテゴリ一覧 */
 .category-area {
 	width: 75%;
 	margin: 20px auto 35px;
@@ -148,8 +138,6 @@ ul.error {
 	border-radius: 18px;
 	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
 }
-
-/* カテゴリリンク */
 .category-area a {
 	display: inline-flex;
 	justify-content: center;
@@ -163,12 +151,9 @@ ul.error {
 	border: 1px solid rgb(243, 152, 0);
 	border-radius: 20px;
 	font-weight: bold;
-	text-decoration: none;
 	box-sizing: border-box;
 	transition: 0.2s;
 }
-
-/* カテゴリリンク hover */
 .category-area a:hover {
 	background-color: rgb(243, 152, 0);
 	color: #ffffff;
@@ -176,14 +161,10 @@ ul.error {
 	box-shadow: 0 3px 8px rgb(243, 152, 0);
 	text-decoration: none;
 }
-
-/* レシピ一覧見出し */
 h2 {
 	color: rgb(74, 58, 42);
 	margin-top: 30px;
 }
-
-/* レシピカード */
 .recipe-card {
 	background-color: rgb(255, 250, 242);
 	border: 1px solid rgb(246, 185, 75);
@@ -193,45 +174,119 @@ h2 {
 	padding: 18px;
 	text-align: left;
 }
-
-/* レシピ名リンク */
 .recipe-card a {
 	text-decoration: none;
 }
-
-/* レシピ名 */
 .recipe-card h3 {
 	color: rgb(243, 152, 0);
 	margin: 0 0 10px;
 }
-
-/* 投稿者 */
 .recipe-card p {
 	color: rgb(95, 74, 56);
 	margin: 8px 0 15px;
 }
-
-/* 編集・削除ボタンの並び */
 .recipe-buttons {
 	display: flex;
 	gap: 10px;
 }
-
-/* 削除フォームの余白を消す */
 .recipe-buttons form {
 	margin: 0;
 }
-
-/* 編集・削除ボタン */
 .recipe-buttons button {
 	background-color: rgb(243, 152, 0);
 	color: #ffffff;
 	border: none;
-	border-radius: 6px;
 	padding: 6px 16px;
 	cursor: pointer;
 }
 
 .recipe-buttons button:hover {
 	background-color: rgb(246, 185, 75);
+}
+
+textarea {
+width:200px;
+height:100px;
+}
+
+/* レシピ作成編集画面 */
+.recipe-form-page .form-title {
+	margin-top: 30px;
+	color: rgb(74, 58, 42);
+}
+.recipe-form-page .recipe-form {
+	background-color: #ffffff;
+	width: 550px;
+	margin: 20px auto;
+	padding: 20px;
+	border: 1px solid rgb(246, 185, 75);
+	text-align: left;
+}
+.recipe-form-page .recipe-form div {
+	margin-bottom: 12px;
+}
+.recipe-form-page .recipe-form label {
+	font-weight: bold;
+	color: rgb(74, 58, 42);
+}
+.recipe-form-page .recipe-form input {
+	width: 400px;
+	height: 28px;
+	padding: 5px;
+	border: 1px solid rgb(230, 194, 138);
+}
+.recipe-form-page .recipe-form select {
+	width: 415px;
+	height: 35px;
+	padding: 5px;
+	border: 1px solid rgb(230, 194, 138);
+}
+.recipe-form-page .recipe-form textarea {
+	width: 500px;
+	height: 150px;
+	padding: 5px;
+	border: 1px solid rgb(230, 194, 138);
+}
+.recipe-form-page .recipe-form button {
+	display: block;
+	margin: 10px auto;
+}
+.recipe-form-page .back-link {
+	display: inline-block;
+	margin: 15px;
+	color: rgb(243, 152, 0);
+	font-weight: bold;
+}
+/* マイページ */
+.mypage h2 {
+	color: rgb(74, 58, 42);
+	margin-top: 30px;
+}
+.mypage-box {
+	background-color: #ffffff;
+	width: 70%;
+	margin: 20px auto;
+	padding: 15px;
+	border: 1px solid rgb(246, 185, 75);
+}
+.my-recipe-card {
+	background-color: rgb(255, 250, 242);
+	border: 1px solid rgb(246, 185, 75);
+	width: 70%;
+	margin: 15px auto;
+	padding: 15px;
+	text-align: left;
+}
+.my-recipe-card h3 {
+	color: rgb(243, 152, 0);
+	margin-top: 0;
+}
+.my-recipe-card a {
+	text-decoration: none;
+}
+.mypage .back-link {
+	display: inline-block;
+	margin: 20px;
+	color: rgb(243, 152, 0);
+	font-weight: bold;
 }
